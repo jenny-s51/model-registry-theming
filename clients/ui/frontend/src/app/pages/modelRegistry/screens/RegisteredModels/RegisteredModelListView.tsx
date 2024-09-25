@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { SearchInput, ToolbarFilter, ToolbarGroup, ToolbarItem } from '@patternfly/react-core';
+import {
+  TextInput,
+  ToolbarFilter,
+  ToolbarGroup,
+  ToolbarItem,
+} from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
 import { useNavigate } from 'react-router-dom';
 import { RegisteredModel } from '~/app/types';
@@ -15,6 +20,7 @@ import {
 import EmptyModelRegistryState from '~/app/pages/modelRegistry/screens/components/EmptyModelRegistryState';
 import RegisteredModelTable from './RegisteredModelTable';
 import RegisteredModelsTableToolbar from './RegisteredModelsTableToolbar';
+import '~/style/MUI-theme.scss';
 
 type RegisteredModelListViewProps = {
   registeredModels: RegisteredModel[];
@@ -90,16 +96,22 @@ const RegisteredModelListView: React.FC<RegisteredModelListViewProps> = ({
         />
       </ToolbarFilter>
       <ToolbarItem variant="label-group">
-        <SearchInput
-          placeholder={`Find by ${searchType.toLowerCase()}`}
-          value={search}
-          onChange={(_, searchValue) => {
-            setSearch(searchValue);
-          }}
-          onClear={() => setSearch('')}
-          style={{ minWidth: '200px' }}
-          data-testid="registered-model-table-search"
-        />
+        <div className="form-fieldset-wrapper">
+          <TextInput
+            value={search}
+            type="text"
+            onChange={(_, searchValue) => {
+              setSearch(searchValue);
+            }}
+            style={{ minWidth: '200px' }}
+            data-testid="registered-model-table-search"
+          />
+          <fieldset aria-hidden="true" className="form-fieldset">
+            <legend className="form-fieldset-legend">
+              <span>Find by keyword</span>
+            </legend>
+          </fieldset>
+        </div>
       </ToolbarItem>
     </ToolbarGroup>
   );

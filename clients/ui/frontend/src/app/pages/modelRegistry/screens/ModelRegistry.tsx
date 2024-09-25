@@ -7,6 +7,7 @@ import { filterLiveModels } from '~/app/utils';
 import ModelRegistrySelectorNavigator from './ModelRegistrySelectorNavigator';
 import RegisteredModelListView from './RegisteredModels/RegisteredModelListView';
 import { modelRegistryUrl } from './routeUtils';
+import '~/style/MUI-theme.scss';
 
 type ModelRegistryProps = Omit<
   React.ComponentProps<typeof ApplicationsPage>,

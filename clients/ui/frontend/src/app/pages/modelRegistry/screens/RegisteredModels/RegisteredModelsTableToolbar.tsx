@@ -19,6 +19,7 @@ import {
   registerModelUrl,
   registerVersionUrl,
 } from '~/app/pages/modelRegistry/screens/routeUtils';
+import '~/style/MUI-theme.scss';
 
 type RegisteredModelsTableToolbarProps = {
   toggleGroupItems?: React.ReactNode;
