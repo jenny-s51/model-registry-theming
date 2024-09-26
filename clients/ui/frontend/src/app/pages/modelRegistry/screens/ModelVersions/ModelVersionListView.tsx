@@ -7,6 +7,7 @@ import {
   MenuToggle,
   MenuToggleElement,
   SearchInput,
+  TextInput,
   ToolbarContent,
   ToolbarFilter,
   ToolbarGroup,
@@ -112,16 +113,22 @@ const ModelVersionListView: React.FC<ModelVersionListViewProps> = ({
                 />
               </ToolbarFilter>
               <ToolbarItem variant="label">
-                <SearchInput
-                  placeholder={`Find by ${searchType.toLowerCase()}`}
-                  value={search}
-                  onChange={(_, searchValue) => {
-                    setSearch(searchValue);
-                  }}
-                  onClear={() => setSearch('')}
-                  style={{ minWidth: '200px' }}
-                  data-testid="model-versions-table-search"
-                />
+                <div className="form-fieldset-wrapper">
+                  <TextInput
+                    value={search}
+                    type="text"
+                    onChange={(_, searchValue) => {
+                      setSearch(searchValue);
+                    }}
+                    style={{ minWidth: '200px' }}
+                    data-testid="model-versions-table-search"
+                  />
+                  <fieldset aria-hidden="true" className="form-fieldset">
+                    <legend className="form-fieldset-legend">
+                      <span>Find by keyword</span>
+                    </legend>
+                  </fieldset>
+                </div>
               </ToolbarItem>
             </ToolbarGroup>
           </ToolbarToggleGroup>

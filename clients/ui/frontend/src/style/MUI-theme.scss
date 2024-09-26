@@ -135,6 +135,12 @@
   letter-spacing: 0.02857em;
 }
 
+.pf-v6-c-button.pf-m-secondary:hover {
+  --pf-v6-c-button--hover--BackgroundColor: #2196f30a;
+  --pf-v6-c-button--hover--BorderWidth: 1px;
+
+}
+
 .pf-v6-c-form__group {
   position: relative;
 }
