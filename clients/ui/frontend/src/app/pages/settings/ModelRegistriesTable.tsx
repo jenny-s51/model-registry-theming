@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Toolbar, ToolbarContent, ToolbarItem } from "@patternfly/react-core";
+import { Button, Toolbar, ToolbarContent, ToolbarItem } from '@patternfly/react-core';
 import { ModelRegistry } from '~/app/types';
 import { Table } from '~/shared/components/table';
 import { modelRegistryColumns } from './columns';

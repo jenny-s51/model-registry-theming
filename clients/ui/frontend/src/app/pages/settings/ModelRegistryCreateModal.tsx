@@ -49,7 +49,7 @@ const CreateModal: React.FC<CreateModalProps> = ({
   // refresh,
   // modelRegistry: mr
 }) => {
-  const [error, setError] = React.useState<Error>();
+  //   const [error, setError] = React.useState<Error>();
 
   const [host, setHost] = React.useState('');
   const [port, setPort] = React.useState('');
@@ -65,11 +65,11 @@ const CreateModal: React.FC<CreateModalProps> = ({
   const [showPassword, setShowPassword] = React.useState(false);
 
   // Dummy value to set "Create" state by default. TODO: implement when BFF updated
-  const [mr, setMR] = React.useState(false);
+  const [mr] = React.useState(false);
 
   const onBeforeClose = () => {
     // setIsSubmitting(false);
-    setError(undefined);
+    // setError(undefined);
 
     setHost('');
     setPort('');

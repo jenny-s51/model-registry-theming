@@ -7,14 +7,18 @@ import useQueryParamNamespaces from '~/shared/hooks/useQueryParamNamespaces';
 import { isMUITheme } from '~/shared/utilities/const';
 import TitleWithIcon from '~/shared/components/design/TitleWithIcon';
 import { ProjectObjectType } from '~/shared/components/design/utils';
-import { ModelRegistrySelectorContext } from '~/app/context/ModelRegistrySelectorContext';
+// import { ModelRegistrySelectorContext } from '~/app/context/ModelRegistrySelectorContext';
 import ModelRegistriesTable from './ModelRegistriesTable';
 import CreateModal from './ModelRegistryCreateModal';
 
 const ModelRegistrySettings: React.FC = () => {
   const queryParams = useQueryParamNamespaces();
-  const [modelRegistries, mrloaded, loadError, refreshModelRegistries] =
-    useModelRegistries(queryParams);
+  const [
+    modelRegistries,
+    mrloaded,
+    loadError,
+    // refreshModelRegistries
+  ] = useModelRegistries(queryParams);
   const [createModalOpen, setCreateModalOpen] = React.useState(false);
   // TODO: [Midstream] Implement this when adding logic for rules review
   // const { refreshRulesReview } = React.useContext(ModelRegistrySelectorContext);
