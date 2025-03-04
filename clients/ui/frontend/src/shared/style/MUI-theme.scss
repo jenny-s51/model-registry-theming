@@ -201,6 +201,10 @@
   margin-inline-start: var(--pf-t--global--spacer--lg);
 }
 
+.mui-theme .pf-v6-c-helper-text .pf-v6-c-helper-text__item-icon{
+  display: none;
+}
+
 .mui-theme .pf-v6-c-form__section-title {
   --pf-v6-c-form__section-title--MarginBlockStart: 0px;
   --pf-v6-c-form__section-title--MarginInlineStart: 0px;
@@ -231,6 +235,8 @@
 .mui-theme .pf-v6-c-form-control {
   --pf-v6-c-form-control--m-disabled--BackgroundColor: var(--mui-palette-common-white);
   --pf-v6-c-form-control--m-disabled--Color: var(--mui-palette-text-disabled);
+  --pf-v6-c-form-control--m-error--after--BorderColor: var(--mui-palette-error-main);
+  --pf-v6-c-form-control--m-error--hover--after--BorderColor: var(--mui-palette-error-main);
 }
 
 .mui-theme .pf-v6-c-form-control {
@@ -414,6 +420,9 @@
 
 .pf-v6-c-form__group:focus-within .pf-v6-c-form-control {
   --pf-v6-c-form-control--after--BorderWidth: 2px;
+}
+
+.pf-v6-c-form-control:not(.pf-m-error) {
   --pf-v6-c-form-control--after--BorderColor: var(--mui-palette-primary-main);
 }
 
@@ -833,7 +842,6 @@
   /* Position sidebar above the masthead */
 }
 
-
 /* Hide Masthead Toggle by default */
 .mui-theme .pf-v6-c-masthead__toggle {
   display: none;
@@ -851,8 +859,8 @@
   }
 }
 
-.mui-theme .pf-v6-c-page__sidebar:not(.pf-m-collapsed)+.pf-v6-c-page__main-container,
-.mui-theme .pf-v6-c-page__sidebar:not(.pf-m-collapsed)+.pf-v6-c-page__drawer {
+.mui-theme .pf-v6-c-page__sidebar:not(.pf-m-collapsed) + .pf-v6-c-page__main-container,
+.mui-theme .pf-v6-c-page__sidebar:not(.pf-m-collapsed) + .pf-v6-c-page__drawer {
   --pf-v6-c-page__main-container--MarginInlineStart: calc(-2 * var(--mui-spacing-16px));
   --pf-v6-c-page__main-section--PaddingInlineStart: none;
   --pf-v6-c-page__main-section--PaddingInlineEnd: none;
