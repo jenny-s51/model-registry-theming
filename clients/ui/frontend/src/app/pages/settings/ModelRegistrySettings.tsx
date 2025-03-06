@@ -15,6 +15,12 @@ const ModelRegistrySettings: React.FC = () => {
   // TODO: [Midstream] Implement this when adding logic for rules review
   const loaded = mrloaded; //&& roleBindings.loaded;
 
+  // TODO: implement when refreshModelRegistries() and refreshRulesReview() are added
+  // const refreshAll = React.useCallback(
+  //   () => Promise.all([refreshModelRegistries(), refreshRulesReview()]),
+  //   [refreshModelRegistries, refreshRulesReview],
+  // );
+
   return (
     <>
       <ApplicationsPage
@@ -54,7 +60,8 @@ const ModelRegistrySettings: React.FC = () => {
         }
         provideChildrenPadding
       >
-        <ModelRegistriesTable modelRegistries={modelRegistries} />
+        {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
+        <ModelRegistriesTable modelRegistries={modelRegistries} refresh={() => {}} />
       </ApplicationsPage>
     </>
   );
