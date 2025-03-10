@@ -186,6 +186,10 @@
   align-content: center;
 }
 
+.mui-theme .pf-v6-c-form {
+  --pf-v6-c-form--GridGap: none;
+}
+
 .mui-theme .pf-v6-c-form__group {
   position: relative;
 }
@@ -340,6 +344,14 @@
   border-color: var(--mui-palette-error-main);
 }
 
+.form-fieldset-wrapper .pf-v6-c-input-group__item button {
+  // Aligns EyeIcon in password input
+  --pf-v6-c-button--PaddingBlockStart: var(--mui-spacing-16px);
+  --pf-v6-c-button--PaddingBlockEnd: var(--mui-spacing-16px);
+  --pf-v6-c-button--BorderColor: var(--mui-palette-common-white);
+  --pf-v6-c-button--BorderRadius: 50%;
+}
+
 .form-fieldset-wrapper:focus-within .form-fieldset {
   border-color: var(--mui-palette-primary-main);
   border-width: 2px;
@@ -456,6 +468,10 @@
   // Using CSS property here since --pf-v6-c-form__label--Color does not exist.
 
   color: var(--mui-palette-error-main);
+}
+
+.mui-theme .pf-v6-c-form__group.pf-m-error fieldset.form-fieldset {
+  border-color: var(--mui-palette-error-main);
 }
 
 .pf-v6-c-form__group:not(.pf-m-error):focus-within .pf-v6-c-form__label {

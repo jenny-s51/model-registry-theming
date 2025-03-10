@@ -176,8 +176,8 @@ const CreateModal: React.FC<CreateModalProps> = ({
 
   const usernameHelperText = isUsernameTouched && !hasContent(username) && (
     <HelperText>
-      <HelperTextItem variant="error" data-testid="mr-host-error">
-        Host cannot be empty
+      <HelperTextItem variant="error" data-testid="mr-username-error">
+        Username cannot be empty
       </HelperTextItem>
     </HelperText>
   );
@@ -242,10 +242,10 @@ const CreateModal: React.FC<CreateModalProps> = ({
     />
   );
 
-  const databaseHelperText = isHostTouched && !hasContent(host) && (
+  const databaseHelperText = isDatabaseTouched && !hasContent(database) && (
     <HelperText>
-      <HelperTextItem variant="error" data-testid="mr-host-error">
-        Host cannot be empty
+      <HelperTextItem variant="error" data-testid="mr-database-error">
+        Database cannot be empty
       </HelperTextItem>
     </HelperText>
   );
@@ -254,7 +254,7 @@ const CreateModal: React.FC<CreateModalProps> = ({
     <>
       <FormGroup
         className={databaseHelperText ? 'pf-m-error' : ''}
-        label="Host"
+        label="Database"
         isRequired
         fieldId="mr-database"
       >
