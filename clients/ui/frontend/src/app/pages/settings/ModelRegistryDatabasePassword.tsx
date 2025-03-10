@@ -67,13 +67,6 @@ const ModelRegistryDatabasePassword: React.FC<ModelRegistryDatabasePasswordProps
         onChange={(_e, value) => setPassword(value)}
         validated={isPasswordTouched && !hasContent(password) ? 'error' : 'default'}
       />
-      {isPasswordTouched && !hasContent(password) && (
-        <HelperText>
-          <HelperTextItem variant="error" data-testid="mr-password-error">
-            Password cannot be empty
-          </HelperTextItem>
-        </HelperText>
-      )}
     </>
   );
 };
