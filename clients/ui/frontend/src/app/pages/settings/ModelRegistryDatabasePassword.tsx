@@ -1,5 +1,4 @@
 import React from 'react';
-import { HelperText, HelperTextItem } from '@patternfly/react-core';
 import PasswordInput from '~/app/pages/settings/PasswordInput';
 
 type ModelRegistryDatabasePasswordProps = {

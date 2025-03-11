@@ -83,14 +83,6 @@ const CreateModal: React.FC<CreateModalProps> = ({
     onClose();
   };
 
-  const nameDescriptionInput = (
-    <K8sNameDescriptionField
-      dataTestId="mr"
-      // data={nameDesc}
-      //  onDataChange={setNameDesc}
-    />
-  );
-
   const hostInput = (
     <TextInput
       isRequired

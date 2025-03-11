@@ -8,9 +8,9 @@ import {
   TextInput,
 } from '@patternfly/react-core';
 import ResourceNameDefinitionTooltip from '~/concepts/k8s/ResourceNameDefinitionTootip';
-import ResourceNameField from './ResourceNameField';
 import { isMUITheme } from '~/shared/utilities/const';
 import FormFieldset from '~/app/pages/modelRegistry/screens/components/FormFieldset';
+import ResourceNameField from './ResourceNameField';
 
 // TODO: replace with the actual call once we have the endpoint
 

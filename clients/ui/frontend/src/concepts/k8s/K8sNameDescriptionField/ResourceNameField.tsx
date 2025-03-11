@@ -18,11 +18,6 @@ const ResourceNameField: React.FC<ResourceNameFieldProps> = ({
   //   k8sName,
   //   onDataChange,
 }) => {
-  const formGroupProps: React.ComponentProps<typeof FormGroup> = {
-    label: 'Resource name',
-    labelHelp: <ResourceNameDefinitionTooltip />,
-    fieldId: `${dataTestId}-resourceName`,
-  };
 
   // TODO: Implement this once we have the endpoint.
 
