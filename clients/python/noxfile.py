@@ -58,6 +58,7 @@ def tests(session: Session) -> None:
         "requests",
         "pytest",
         "pytest-asyncio",
+        "uvloop",
         "olot",
     )
     session.run(
@@ -72,13 +73,16 @@ def e2e_tests(session: Session) -> None:
     """Run the test suite."""
     session.install(
         ".",
+        "ray",
         "requests",
         "pytest",
         "pytest-asyncio",
         "coverage[toml]",
         "pytest-cov",
         "huggingface-hub",
+        "boto3",
         "olot",
+        "uvloop",
     )
     try:
         session.run(
