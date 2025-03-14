@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PageSection, Tab, Tabs, TabTitleText } from '@patternfly/react-core';
+import { Content, PageSection, Tab, Tabs, TabTitleText } from '@patternfly/react-core';
 import { ModelVersion } from '~/app/types';
 import { ModelVersionDetailsTabTitle, ModelVersionDetailsTab } from './const';
 import ModelVersionDetailsView from './ModelVersionDetailsView';
+// import EmptyModelRegistryState from '../components/EmptyModelRegistryState';
+// TODO: [Model Serving] Uncomment when model serving is available
+// import ModelVersionRegisteredDeploymentsView from './ModelVersionsRegisteredDeploymentsView';
 
 type ModelVersionDetailTabsProps = {
   tab: ModelVersionDetailsTab;
@@ -38,6 +41,20 @@ const ModelVersionDetailsTabs: React.FC<ModelVersionDetailTabsProps> = ({
           isFilled
           data-testid="model-versions-details-tab-content"
         >
+          <ModelVersionDetailsView
+            modelVersion={mv}
+            refresh={refresh}
+            isArchiveVersion={isArchiveVersion}
+          />
+        </PageSection>
+      </Tab>
+      <Tab
+        eventKey={ModelVersionDetailsTab.DEPLOYMENTS}
+        title={<TabTitleText>{ModelVersionDetailsTabTitle.DEPLOYMENTS}</TabTitleText>}
+        aria-label="Model versions deployments tab"
+        data-testid="model-versions-deployments-tab"
+      >
+        <PageSection hasBodyWrapper isFilled data-testid="model-versions-deployments-tab-content">
           <ModelVersionDetailsView
             modelVersion={mv}
             refresh={refresh}
