@@ -6,6 +6,9 @@ import {
   DropdownItem,
   ButtonVariant,
   ActionList,
+  ActionListGroup,
+  ActionListItem,
+  Button,
 } from '@patternfly/react-core';
 import { useNavigate } from 'react-router';
 import { ModelState, ModelVersion } from '~/app/types';
@@ -32,41 +35,59 @@ const ModelVersionsDetailsHeaderActions: React.FC<ModelVersionsDetailsHeaderActi
   const tooltipRef = React.useRef<HTMLButtonElement>(null);
 
   return (
-    <ActionList>
-      <Dropdown
-        isOpen={isOpenActionDropdown}
-        onSelect={() => setOpenActionDropdown(false)}
-        onOpenChange={(open) => setOpenActionDropdown(open)}
-        popperProps={{ position: 'right', appendTo: 'inline' }}
-        toggle={(toggleRef) => (
-          <MenuToggle
-            variant={ButtonVariant.secondary}
-            ref={toggleRef}
-            onClick={() => setOpenActionDropdown(!isOpenActionDropdown)}
-            isExpanded={isOpenActionDropdown}
-            aria-label="Model version details action toggle"
-            data-testid="model-version-details-action-button"
-          >
-            Actions
-          </MenuToggle>
-        )}
-      >
-        <DropdownList>
-          <DropdownItem
-            isAriaDisabled={hasDeployment}
-            id="archive-version-button"
-            aria-label="Archive model version"
-            key="archive-version-button"
-            onClick={() => setIsArchiveModalOpen(true)}
-            tooltipProps={
-              hasDeployment ? { content: 'Deployed model versions cannot be archived' } : undefined
-            }
+    <ActionList className="pf-v6-u-display-flex">
+      <ActionListGroup className="pf-v6-u-flex-1">
+        <ActionListItem>
+          <Button
+            id="deploy-button"
+            aria-label="Deploy version"
             ref={tooltipRef}
+            variant={ButtonVariant.primary}
+            className="pf-v6-u-background-color-highlight"
+            // onClick={() => setIsDeployModalOpen(true)}
           >
-            Archive model version
-          </DropdownItem>
-        </DropdownList>
-      </Dropdown>
+            Deploy
+          </Button>
+        </ActionListItem>
+        <ActionListItem>
+          <Dropdown
+            isOpen={isOpenActionDropdown}
+            onSelect={() => setOpenActionDropdown(false)}
+            onOpenChange={(open) => setOpenActionDropdown(open)}
+            popperProps={{ position: 'right', appendTo: 'inline' }}
+            toggle={(toggleRef) => (
+              <MenuToggle
+                variant={ButtonVariant.secondary}
+                ref={toggleRef}
+                onClick={() => setOpenActionDropdown(!isOpenActionDropdown)}
+                isExpanded={isOpenActionDropdown}
+                aria-label="Model version details action toggle"
+                data-testid="model-version-details-action-button"
+              >
+                Actions
+              </MenuToggle>
+            )}
+          >
+            <DropdownList>
+              <DropdownItem
+                isAriaDisabled={hasDeployment}
+                id="archive-version-button"
+                aria-label="Archive model version"
+                key="archive-version-button"
+                onClick={() => setIsArchiveModalOpen(true)}
+                tooltipProps={
+                  hasDeployment
+                    ? { content: 'Deployed model versions cannot be archived' }
+                    : undefined
+                }
+                ref={tooltipRef}
+              >
+                Archive model version
+              </DropdownItem>
+            </DropdownList>
+          </Dropdown>
+        </ActionListItem>
+      </ActionListGroup>
       {isArchiveModalOpen ? (
         <ArchiveModelVersionModal
           onCancel={() => setIsArchiveModalOpen(false)}

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Content, PageSection, Tab, Tabs, TabTitleText } from '@patternfly/react-core';
+import { Button, Content, PageSection, Tab, Tabs, TabTitleText } from '@patternfly/react-core';
 import { ModelVersion } from '~/app/types';
 import { ModelVersionDetailsTabTitle, ModelVersionDetailsTab } from './const';
 import ModelVersionDetailsView from './ModelVersionDetailsView';

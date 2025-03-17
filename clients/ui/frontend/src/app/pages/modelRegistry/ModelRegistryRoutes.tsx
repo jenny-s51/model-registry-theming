@@ -45,14 +45,14 @@ const ModelRegistryRoutes: React.FC = () => (
             path={ModelVersionDetailsTab.DETAILS}
             element={<ModelVersionsDetails tab={ModelVersionDetailsTab.DETAILS} empty={false} />}
           />
-          {isPlatformDefault() && (
-            <Route
-              path={ModelVersionDetailsTab.DEPLOYMENTS}
-              element={
-                <ModelVersionsDetails tab={ModelVersionDetailsTab.DEPLOYMENTS} empty={false} />
-              }
-            />
-          )}
+          {/* {isPlatformDefault() && ( */}
+          <Route
+            path={ModelVersionDetailsTab.DEPLOYMENTS}
+            element={
+              <ModelVersionsDetails tab={ModelVersionDetailsTab.DEPLOYMENTS} empty={false} />
+            }
+          />
+          {/* )} */}
           <Route path="*" element={<Navigate to="." />} />
         </Route>
         <Route path="versions/archive">
@@ -65,18 +65,17 @@ const ModelRegistryRoutes: React.FC = () => (
                 <ModelVersionsArchiveDetails tab={ModelVersionDetailsTab.DETAILS} empty={false} />
               }
             />
-            {isPlatformDefault() && (
-              <Route
-                path={ModelVersionDetailsTab.DEPLOYMENTS}
-                element={
-                  <ModelVersionsArchiveDetails
-                    tab={ModelVersionDetailsTab.DEPLOYMENTS}
-                    empty={false}
-                  />
-                }
-              />
-            )}
-
+            {/* {isPlatformDefault() && ( */}
+            <Route
+              path={ModelVersionDetailsTab.DEPLOYMENTS}
+              element={
+                <ModelVersionsArchiveDetails
+                  tab={ModelVersionDetailsTab.DEPLOYMENTS}
+                  empty={false}
+                />
+              }
+            />
+            {/* )} */}
             <Route path="*" element={<Navigate to="." />} />
           </Route>
           <Route path="*" element={<Navigate to="." />} />
@@ -118,7 +117,6 @@ const ModelRegistryRoutes: React.FC = () => (
                 }
               />
             )}
-
             <Route path="*" element={<Navigate to="." />} />
           </Route>
           <Route path="*" element={<Navigate to="." />} />
