@@ -49,8 +49,6 @@
   --mui-menu-toggle--PaddingInlineEnd: 16px;
   --mui-menu-toggle--ColumnGap: 0;
   --mui-menu-toggle--expanded--Color: black;
-  --mui-menu-toggle--hover--BorderColor: none;
-  --mui-menu-toggle--BorderColor: #cec7c7;
   --mui-menu-toggle--PaddingInlineStart: 10px;
   --mui-menu-toggle--PaddingInlineEnd: 10px;
 
@@ -266,9 +264,6 @@
   --pf-v6-c-form__section--Gap: 0px;
 }
 
-.mui-theme .toolbar-fieldset-wrapper .pf-v6-c-form-control input {
-  padding: 8px 14px;
-}
 
 .mui-theme .tr-fieldset-wrapper .form-fieldset {
   inset: 0px;
@@ -334,7 +329,7 @@
 }
 
 .form-fieldset-wrapper:hover .form-fieldset {
-  border-color: black;
+  border-color: var(--mui-palette-common-black);
 }
 
 .form-fieldset-wrapper:focus-within span.pf-v6-c-form-control.pf-m-disabled ~ .form-fieldset {
@@ -507,7 +502,7 @@
   display: none;
 }
 
-.mui-theme .pf-v6-c-menu-toggle {
+.mui-theme .pf-v6-c-menu-toggle:not(.pf-m-plain) {
   --pf-v6-c-menu-toggle__toggle-icon--MinHeight: var(--mui-menu-toggle__toggle-icon--MinHeight);
   --pf-v6-c-menu-toggle__controls--MinWidth: var(--mui-menu-toggle__controls--MinWidth);
   --pf-v6-c-menu-toggle--expanded--BackgroundColor: var(
@@ -539,6 +534,38 @@
   letter-spacing: 0.02857em;
 }
 
+// Apply the menu toggle styling to all except split button variant
+.mui-theme .pf-v6-c-menu-toggle:not(.pf-m-split-button) {
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  --pf-v6-c-menu-toggle--BackgroundColor: var(--mui-palette-common-white);
+
+  &:hover {
+    // Restore direct border color setting for hover
+    border-color: var(--mui-palette-common-black);
+  }
+
+  &:focus-within {
+    // Keep border width consistent to prevent layout shift
+    border: 1px solid var(--mui-palette-primary-main);
+    // Use box-shadow to create a thicker border while preventing layout shift
+    box-shadow: 0 0 0 1px var(--mui-palette-primary-main);
+  }
+}
+
+.mui-theme .pf-v6-c-menu-toggle.pf-m-plain {
+  --pf-v6-c-menu-toggle--BorderRadius: 50%;
+  // Ensure plain variant doesn't get the border styling
+  border: none;
+  
+  &:hover, &:focus-within {
+    border: none;
+    box-shadow: none;
+    background-color: var(--pf-v6-c-menu-toggle--hover--BackgroundColor);
+  }
+}
+
 .mui-theme .pf-v6-c-menu-toggle__button {
   text-transform: var(--mui-text-transform);
   font-weight: var(--mui-button-FontWeight);
@@ -548,10 +575,6 @@
 
 .mui-theme .pf-v6-c-menu-toggle.pf-m-disabled {
   border: solid 1px var(--mui-palette-action-disabled);
-}
-
-.mui-theme .pf-v6-c-menu-toggle.pf-m-plain {
-  --pf-v6-c-menu-toggle--BorderRadius: 50%;
 }
 
 .mui-theme .pf-v6-c-menu-toggle.pf-m-primary {
@@ -969,3 +992,21 @@
     padding-left: var(--mui-spacing-12px);
   }
 }
+
+.mui-theme .pf-v6-c-toolbar__item.toolbar-fieldset-wrapper,
+.mui-theme .toolbar-fieldset-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  height: 51px;
+}
+
+.mui-theme .toolbar-fieldset-wrapper:hover .form-fieldset {
+  border-color: var(--mui-palette-common-black);
+}
+
+.mui-theme .toolbar-fieldset-wrapper:focus-within .form-fieldset,
+.mui-theme .tr-fieldset-wrapper:focus-within .form-fieldset {
+  border-color: var(--mui-palette-primary-main);
+}
+
