@@ -25,6 +25,8 @@ import AppNavSidebar from '~/app/standalone/AppNavSidebar';
 import AppRoutes from '~/app/AppRoutes';
 import { AppContext } from '~/app/context/AppContext';
 import { ModelRegistrySelectorContextProvider } from '~/app/context/ModelRegistrySelectorContext';
+// Import overrides last to ensure highest priority
+import './overrides.scss';
 
 const App: React.FC = () => {
   const {
@@ -115,9 +117,11 @@ const App: React.FC = () => {
         isManagedSidebar={isStandalone}
         sidebar={isStandalone ? <AppNavSidebar /> : sidebar}
       >
-        <ModelRegistrySelectorContextProvider>
-          <AppRoutes />
-        </ModelRegistrySelectorContextProvider>
+        <PageSection isFilled>
+          <ModelRegistrySelectorContextProvider>
+            <AppRoutes />
+          </ModelRegistrySelectorContextProvider>
+        </PageSection>
         <ToastNotifications />
       </Page>
     </AppContext.Provider>
