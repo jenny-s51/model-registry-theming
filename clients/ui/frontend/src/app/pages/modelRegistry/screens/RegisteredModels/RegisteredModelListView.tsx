@@ -97,7 +97,7 @@ const RegisteredModelListView: React.FC<RegisteredModelListViewProps> = ({
               fieldLabel="Filter by keyword"
               placeholder="Filter by keyword"
               className="toolbar-fieldset-wrapper"
-              style={{ minWidth: '270px' }}
+              style={{ minWidth: '200px' }}
               onChange={(value) => onChange(value)}
             />
           ),
@@ -107,7 +107,7 @@ const RegisteredModelListView: React.FC<RegisteredModelListViewProps> = ({
               fieldLabel="Filter by owner"
               placeholder="Filter by owner"
               className="toolbar-fieldset-wrapper"
-              style={{ minWidth: '270px' }}
+              style={{ minWidth: '200px' }}
               onChange={(value) => onChange(value)}
             />
           ),

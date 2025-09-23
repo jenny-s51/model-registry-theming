@@ -158,7 +158,7 @@ const ModelVersionListView: React.FC<ModelVersionListViewProps> = ({
                             fieldLabel="Filter by keyword"
                             placeholder="Filter by keyword"
                             className="toolbar-fieldset-wrapper"
-                            style={{ minWidth: '270px' }}
+                            style={{ minWidth: '200px' }}
                             onChange={(value) => onChange(value)}
                           />
                         ),
@@ -168,7 +168,7 @@ const ModelVersionListView: React.FC<ModelVersionListViewProps> = ({
                             fieldLabel="Filter by author"
                             placeholder="Filter by author"
                             className="toolbar-fieldset-wrapper"
-                            style={{ minWidth: '270px' }}
+                            style={{ minWidth: '200px' }}
                             onChange={(value) => onChange(value)}
                           />
                         ),

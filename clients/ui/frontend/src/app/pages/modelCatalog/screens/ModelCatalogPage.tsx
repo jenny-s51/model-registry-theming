@@ -9,6 +9,8 @@ import {
   Button,
   Spinner,
   Alert,
+  Stack,
+  StackItem,
 } from '@patternfly/react-core';
 import { CubesIcon } from '@patternfly/react-icons';
 import { useNavigate } from 'react-router-dom';
@@ -74,25 +76,33 @@ const ModelCatalogPage: React.FC = () => {
 
   return (
     <PageSection>
-      <Title headingLevel="h1" size="2xl" className="pf-v5-u-mb-md">
-        Model Catalog
-      </Title>
-      <p className="pf-v5-u-mb-lg">
-        Discover models that are available for your organization to register, deploy, and customize.
-      </p>
-      <Gallery hasGutter minWidths={{ default: '300px' }}>
-        {sources.map((source) =>
-          (source.models || []).map((model) => (
-            <GalleryItem key={model.id}>
-              <ModelCatalogCard
-                model={model}
-                source={source.displayName}
-                onSelect={handleModelSelect}
-              />
-            </GalleryItem>
-          )),
-        )}
-      </Gallery>
+      <Stack hasGutter>
+        <StackItem>
+          <Title headingLevel="h1" size="2xl">
+            Model Catalog
+          </Title>
+        </StackItem>
+        <StackItem>
+          <p>
+            Discover models that are available for your organization to register, deploy, and customize.
+          </p>
+        </StackItem>
+        <StackItem>
+          <Gallery hasGutter minWidths={{ default: '300px' }}>
+            {sources.map((source) =>
+              (source.models || []).map((model) => (
+                <GalleryItem key={model.id}>
+                  <ModelCatalogCard
+                    model={model}
+                    source={source.displayName}
+                    onSelect={handleModelSelect}
+                  />
+                </GalleryItem>
+              )),
+            )}
+          </Gallery>
+        </StackItem>
+      </Stack>
     </PageSection>
   );
 };
