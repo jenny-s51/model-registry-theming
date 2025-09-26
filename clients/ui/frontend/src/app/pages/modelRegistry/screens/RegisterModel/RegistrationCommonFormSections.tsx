@@ -182,20 +182,20 @@ const RegistrationCommonFormSections = <D extends RegistrationCommonFormData>({
       >
         <FormGroup label="Version name" isRequired fieldId="version-name">
           <FormFieldset component={versionNameInput} field="Version Name" />
-          <FormHelperText>
-            {latestVersion && (
+          {latestVersion && (
+            <FormHelperText>
               <HelperText>
                 <HelperTextItem>Current version is {latestVersion.name}</HelperTextItem>
               </HelperText>
-            )}
-            {!isVersionNameValid && (
-              <HelperText>
-                <HelperTextItem variant="error">
-                  Cannot exceed {MR_CHARACTER_LIMIT} characters
-                </HelperTextItem>
-              </HelperText>
-            )}
-          </FormHelperText>
+              {!isVersionNameValid && (
+                <HelperText>
+                  <HelperTextItem variant="error">
+                    Cannot exceed {MR_CHARACTER_LIMIT} characters
+                  </HelperTextItem>
+                </HelperText>
+              )}
+            </FormHelperText>
+          )}
         </FormGroup>
         <FormGroup label="Version description" fieldId="version-description">
           <FormFieldset component={versionDescriptionInput} field="Version Description" />
